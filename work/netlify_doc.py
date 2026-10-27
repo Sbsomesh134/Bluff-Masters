@@ -1,0 +1,4 @@
+﻿from pathlib import Path
+p=Path('README.md');s=p.read_text(encoding='utf-8-sig')
+s=s.replace('5. Verify with two separate browsers/devices:', '5. For CLI deployment after linking the site, set the two public build variables and publish with: npx netlify-cli env:set VITE_SUPABASE_URL https://YOUR_PROJECT_REF.supabase.co; npx netlify-cli env:set VITE_SUPABASE_ANON_KEY YOUR_PUBLISHABLE_OR_ANON_KEY; npx netlify-cli deploy --build --prod. Use npx netlify-cli login and npx netlify-cli link first if this site is not linked. You can instead set those two variables in the Netlify dashboard. Netlify reads hosted build variables from site configuration; it does not import local .env files. Never put the service-role key in frontend variables.\n6. Verify with two separate browsers/devices:')
+p.write_text(s,encoding='utf-8')

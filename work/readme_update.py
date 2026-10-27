@@ -1,0 +1,6 @@
+﻿from pathlib import Path
+p=Path('README.md');s=p.read_text(encoding='utf-8-sig')
+s=s.replace('In Supabase Dashboard → Authentication → Providers, enable **Anonymous sign-ins**. Guest identity is a Supabase anonymous-auth user, not a manually registered account. The session is persisted in that browser for reconnection.', 'In Supabase Dashboard → Authentication → Providers, enable **Anonymous sign-ins**. The included supabase/config.toml also enables anonymous sign-ins for local Supabase. Guest identity is a Supabase anonymous-auth user, not a manually registered account. The session is persisted in that browser for reconnection.')
+s=s.replace("Create supabase/.env.local for the local Edge Function's Supabase URL, anon key, and service-role key.", "Create supabase/.env.local for the local Edge Function's Supabase URL, anon key, and service-role key (for local Supabase, get them from supabase status -o env).")
+s=s.replace('Rooms are not currently swept by a scheduled cleanup job. Room expiration is recorded as the 24-hour policy, but automated deletion/cleanup remains a production follow-up if persistent room accumulation becomes material.', 'Inactive rooms expire after 24 hours and are removed lazily when another room is created or an expired code is joined; no scheduled cleanup job is configured.')
+p.write_text(s,encoding='utf-8')
